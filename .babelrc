@@ -7,5 +7,5 @@
         }
       }
     ], "react", "babel-preset-stage-1"
-  ],
+  ]
 }

@@ -1,11 +1,14 @@
-const cssnano = require('cssnano');
-// const postcss = require('gulp-postcss');
-// const postcss = require('postcss-preset-env');
-
 module.exports = {
-	plugins: [
-		cssnano({
-			preset: 'default',
-		})
-	]
+	plugins: {
+		'postcss-import': {},
+		'postcss-preset-env': {
+			browsers: 'last 2 versions',
+			autoprefixer: {
+				grid: true
+			}
+		},
+		'cssnano': {
+			preset: 'default'
+		}
+	}
 }

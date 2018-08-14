@@ -1,11 +1,10 @@
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-const path = require('path');
 
 module.exports = {
 	entry: {
-		app: ['babel-polyfill', './src/index.js']
+		main: ['babel-polyfill', './src/index.js']
 	},
 	module: {
 		rules: [{
@@ -21,8 +20,13 @@ module.exports = {
 				process.env.NODE_ENV !== 'production' ?
 				'style-loader' :
 				MiniCssExtractPlugin.loader,
-				'css-loader',
-				// 'postcss-loader',
+				{
+					loader: 'css-loader',
+					options: {
+						importLoaders: 1
+					}
+				},
+				'postcss-loader',
 				'sass-loader'
 			]
 		}]
