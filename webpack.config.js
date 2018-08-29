@@ -6,6 +6,9 @@ module.exports = {
 	entry: {
 		main: ['babel-polyfill', './src/index.js']
 	},
+	output: {
+		publicPath: '/'
+	},
 	module: {
 		rules: [{
 			test: /\.(js|jsx)$/,
