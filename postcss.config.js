@@ -7,7 +7,7 @@ module.exports = {
 				grid: true
 			}
 		},
-		'cssnano': {
+		'cssnano': process.env.NODE_ENV !== 'production' ? {} : {
 			preset: 'default'
 		}
 	}
