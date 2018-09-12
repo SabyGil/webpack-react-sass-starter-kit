@@ -1,6 +1,16 @@
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const webpack = require("webpack");
+
+//To collect API keys, uncomment
+// const dotenv = require("dotenv");
+
+// const env = dotenv.config().parsed;
+// const envKeys = Object.keys(env).reduce((prev, next) => {
+//   prev[`process.env.${next}`] = JSON.stringify(env[next]);
+//   return prev;
+// }, {});
 
 module.exports = {
 	entry: ["@babel/polyfill", "./src/index.js"],
@@ -54,6 +64,7 @@ module.exports = {
 		]
 	},
 	plugins: [
+		// new webpack.DefinePlugin(envKeys),
 		new HtmlWebPackPlugin({
 			template: './public/index.html'
 		}),
